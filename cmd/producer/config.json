@@ -1,0 +1,18 @@
+{
+    "environment": "development",
+    "debug": true,
+    "server": {
+        "address": 4500
+    },
+    "context": {
+        "timeout": 5
+    },
+    "postgres": {
+        "driver": "postgres",
+        "host": "127.0.0.1",
+        "port": "5432",
+        "db_name": "person",
+        "db_user": "postgres",
+        "db_password": "123459"
+    }
+}
