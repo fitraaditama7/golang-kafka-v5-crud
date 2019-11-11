@@ -1,6 +1,7 @@
 package consumer
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/Shopify/sarama"
@@ -17,6 +18,7 @@ func (c *KafkaConsumer) Consume(topics []string, signals chan os.Signal) {
 	for _, topic := range topics {
 		partitionList, err := c.Consumer.Partitions(topic)
 		if err != nil {
+			fmt.Println()
 			logrus.Errorf("unable to get partition got error %v", err)
 			continue
 		}
@@ -31,6 +33,7 @@ ConsumerLoop:
 	for {
 		select {
 		case msg := <-chanMessage:
+			fmt.Println()
 			logrus.Infof("New Message from kafka, message: %v", string(msg.Value))
 		case sig := <-signals:
 			if sig == os.Interrupt {

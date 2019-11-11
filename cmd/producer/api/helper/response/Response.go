@@ -3,6 +3,7 @@ package response
 import (
 	"database/sql"
 	"encoding/json"
+	"golang-kafka-v5-crud/cmd/producer/api/libs"
 	"net/http"
 )
 
@@ -32,7 +33,7 @@ func Response(w http.ResponseWriter, code int, msg string, payload interface{}) 
 	}
 
 	response, _ := json.Marshal(result)
-
+	libs.KafkaProducer(string(response))
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(code)
 	w.Write(response)
