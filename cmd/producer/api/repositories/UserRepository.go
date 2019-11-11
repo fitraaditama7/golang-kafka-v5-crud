@@ -7,4 +7,5 @@ import (
 
 type UserRepository interface {
 	List(ctx context.Context) ([]*models.User, error)
+	Detail(ctx context.Context, id int) (*models.User, error)
 }

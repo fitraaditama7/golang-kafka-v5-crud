@@ -3,8 +3,10 @@ package database
 import (
 	"database/sql"
 
+	"golang-kafka-v5-crud/cmd/producer/config"
+
 	"github.com/sirupsen/logrus"
-	"golang-kafka-v5-crud/cmd/producer/config.go"
+	_ "github.com/lib/pq"
 )
 
 func ConnectPostgres() (*sql.DB, error) {

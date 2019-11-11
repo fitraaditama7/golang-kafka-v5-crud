@@ -14,4 +14,11 @@ var UserRouter = []Route{
 		AuthRequired: false,
 		Package:      packageUser,
 	},
+	Route{
+		Uri:          "/detail/:id",
+		Method:       http.MethodGet,
+		Handler:      controllers.DetailUser,
+		AuthRequired: false,
+		Package:      packageUser,
+	},
 }
